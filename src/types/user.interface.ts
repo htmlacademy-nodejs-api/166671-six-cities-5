@@ -1,5 +1,5 @@
 /** тип пользователя. */
-type UserType = "common" | "pro";
+type UserType = 'common' | 'pro';
 
 /** интерфейс. пользователь */
 export interface User {

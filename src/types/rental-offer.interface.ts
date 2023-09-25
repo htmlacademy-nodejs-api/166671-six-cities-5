@@ -1,6 +1,6 @@
-import { Coords } from "./coords.interface.js";
-import { HousingFeatures } from "./housing-features.type.js";
-import { TypeHousing } from "./type-housing.type.js";
+import { Coords } from './coords.interface.js';
+import { HousingFeatures } from './housing-features.type.js';
+import { TypeHousing } from './type-housing.type.js';
 
 /** интерфейс. Предложение по аренде. */
 export interface RentalOffer {
