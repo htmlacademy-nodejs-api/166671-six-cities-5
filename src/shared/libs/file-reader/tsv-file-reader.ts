@@ -29,7 +29,6 @@ export class TSVFileReader implements FileReader {
       .map((line) => line.split('\t'))
       .map(
         ([
-          title,
           authorId,
           city,
           coords,
@@ -45,6 +44,7 @@ export class TSVFileReader implements FileReader {
           previewImage,
           rating,
           rentalPrice,
+          title,
           typeHousing,
         ]) => ({
           authorId,
