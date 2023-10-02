@@ -1,7 +1,7 @@
 export type MockServerData = {
   authorsId: string[];
   cities: string[];
-  datePublications: string[];
+  coords: string[];
   descriptions: string[];
   features: string[];
   isFavorites: [boolean, boolean];
@@ -12,7 +12,6 @@ export type MockServerData = {
   photosHousing: string[];
   previewImages: string[];
   ratings: number[];
-  rentalPrices: number[];
   titles: string[];
   typeHousing: string[];
 };

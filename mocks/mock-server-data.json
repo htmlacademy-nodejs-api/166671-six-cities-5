@@ -18,15 +18,13 @@
       "Hamburg",
       "Dusseldorf"
     ],
-    "datePublications": [
-      "2023-01-03T11:14:10.342Z",
-      "2023-02-15T08:26:22.342Z",
-      "2023-03-22T07:38:32.342Z",
-      "2023-04-09T01:49:42.342Z",
-      "2023-05-28T03:51:52.342Z",
-      "2023-06-11T09:05:22.342Z",
-      "2023-07-25T02:11:34.342Z",
-      "2023-08-04T06:23:17.342Z"
+    "coords": [
+      "48.85661,2.351499",
+      "50.938361,6.959974",
+      "50.846557,4.351697",
+      "52.370216,4.895168",
+      "53.550341,10.000654",
+      "51.225402,6.776314"
     ],
     "descriptions": [
       "отличная квартира в центре, имеется вся мебель и техника для комфортного проживания.",
@@ -36,12 +34,13 @@
       "апартамент-студия. Стильный интерьер, продуманная планировка с зонами прихожей с вместительным шкафом-купе, кухни и обеденной зоны, гостиной и спальни; санузел с душем."
     ],
     "features": [
-      "Breakfast, Air conditioning, Laptop friendly workspace, Baby seat, Washer, Towels, Fridge",
-      "Breakfast, Air conditioning, Baby seat, Washer, Towels, Fridge",
-      "Breakfast, Air conditioning",
-      "Baby seat, Washer, Towels, Fridge",
-      "Breakfast, Air conditioning, Washer, Towels, Fridge",
-      "Air conditioning, Laptop friendly workspace, Washer, Towels"
+      "Breakfast",
+      "Air conditioning",
+      "Laptop friendly workspace",
+      "Baby seat",
+      "Washer",
+      "Towels",
+      "Fridge"
     ],
     "isFavorites": [true, false],
     "isPremium": [true, false],
@@ -49,23 +48,22 @@
     "numberGuests": [1, 2, 3, 4, 10],
     "numberRooms": [1, 2, 3, 4, 5, 6, 7, 8],
     "photosHousing": [
-      "photo-1.jpg, photo-2.jpg, photo-3.jpg, photo-4.jpg, photo-5.jpg",
-      "photo-1.jpg, photo-3.jpg, photo-4.jpg, photo-5.jpg",
-      "photo-1.jpg, photo-2.jpg, photo-5.jpg",
-      "photo-3.jpg, photo-4.jpg, photo-5.jpg",
-      "photo-4.jpg, photo-5.jpg",
-      "photo-1.jpg"
+      "photo-house-1.jpg",
+      "photo-house-2.jpg",
+      "photo-house-3.jpg",
+      "photo-house-4.jpg",
+      "photo-house-5.jpg",
+      "photo-house-6.jpg"
     ],
     "previewImages": [
-      "image-1.jpg",
-      "image-2.jpg",
-      "image-3.jpg",
-      "image-4.jpg",
-      "image-5.jpg",
-      "image-6.jpg"
+      "preview-image-1.jpg",
+      "preview-image-2.jpg",
+      "preview-image-3.jpg",
+      "preview-image-4.jpg",
+      "preview-image-5.jpg",
+      "preview-image-6.jpg"
     ],
     "ratings": [1.8, 2.2, 3, 4, 5, 5.9],
-    "rentalPrices": [100, 400, 1000, 1500, 2000, 5000, 50000, 100000],
     "titles": [
       "Эконом с двумя раздельными кроватями",
       "Смарт с 1 большой кроватью",
