@@ -1,13 +1,12 @@
 import { readFileSync } from 'node:fs';
 import { FileReader } from './file-reader.interface.js';
-import { RentalOffer } from '../../../types/rental-offer.interface.js';
-import { TypeHousing } from '../../../types/type-housing.type.js';
 import {
   adaptBooleanFromString,
   adaptCoordFromString,
   adaptHousingFeaturesFromString,
   adaptPhotosHousingFromString,
 } from '../../adapters/fromImportFile.js';
+import { RentalOffer, TypeHousing } from '../../../types/index.js';
 
 export class TSVFileReader implements FileReader {
   private rawData = '';
