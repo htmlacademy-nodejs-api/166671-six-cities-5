@@ -5,8 +5,6 @@ import EventEmitter from 'node:events';
 const CHUNK_SIZE = 16384; // 16KB
 
 export class TSVFileReader extends EventEmitter implements FileReader {
-  private rawData = '';
-
   constructor(private readonly filename: string) {
     super();
   }
