@@ -1,70 +1,36 @@
-import { readFileSync } from 'node:fs';
+import { createReadStream } from 'node:fs';
 import { FileReader } from './file-reader.interface.js';
-import { RentalOffer } from '../../../types/rental-offer.interface.js';
-import { TypeHousing } from '../../../types/type-housing.type.js';
-import {
-  adaptBooleanFromString,
-  adaptCoordFromString,
-  adaptHousingFeaturesFromString,
-  adaptPhotosHousingFromString,
-} from '../../adapters/fromImportFile.js';
+import EventEmitter from 'node:events';
 
-export class TSVFileReader implements FileReader {
-  private rawData = '';
+const CHUNK_SIZE = 16384; // 16KB
 
-  constructor(private readonly filename: string) {}
-
-  public read(): void {
-    this.rawData = readFileSync(this.filename, { encoding: 'utf-8' });
+export class TSVFileReader extends EventEmitter implements FileReader {
+  constructor(private readonly filename: string) {
+    super();
   }
 
-  public toArray(): RentalOffer[] {
-    if (!this.rawData) {
-      throw new Error('File was not read');
+  public async read(): Promise<void> {
+    const readStream = createReadStream(this.filename, {
+      highWaterMark: CHUNK_SIZE,
+      encoding: 'utf-8',
+    });
+
+    let remainingData = '';
+    let nextLinePosition = -1;
+    let importedRowCount = 0;
+
+    for await (const chunk of readStream) {
+      remainingData += chunk.toString();
+
+      while ((nextLinePosition = remainingData.indexOf('\n')) >= 0) {
+        const completeRow = remainingData.slice(0, nextLinePosition + 1);
+        remainingData = remainingData.slice(++nextLinePosition);
+        importedRowCount++;
+
+        this.emit('line', completeRow);
+      }
     }
 
-    return this.rawData
-      .split('\n')
-      .filter((row) => row.trim().length > 0)
-      .map((line) => line.split('\t'))
-      .map(
-        ([
-          authorId,
-          city,
-          coords,
-          datePublication,
-          description,
-          features,
-          isFavorites,
-          isPremium,
-          numberComments,
-          numberGuests,
-          numberRooms,
-          photosHousing,
-          previewImage,
-          rating,
-          rentalPrice,
-          title,
-          typeHousing,
-        ]) => ({
-          authorId,
-          city,
-          coords: adaptCoordFromString(coords),
-          datePublication: new Date(datePublication),
-          description,
-          features: adaptHousingFeaturesFromString(features),
-          isFavorites: adaptBooleanFromString(isFavorites),
-          isPremium: adaptBooleanFromString(isPremium),
-          numberComments: +numberComments,
-          numberGuests: +numberGuests,
-          numberRooms: +numberRooms,
-          photosHousing: adaptPhotosHousingFromString(photosHousing),
-          previewImage,
-          rating: +rating,
-          rentalPrice: +rentalPrice,
-          title,
-          typeHousing: typeHousing as TypeHousing,
-        })
-      );
+    this.emit('end', importedRowCount);
   }
 }

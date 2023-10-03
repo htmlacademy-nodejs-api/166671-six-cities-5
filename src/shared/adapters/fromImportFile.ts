@@ -1,5 +1,4 @@
-import { Coords } from '../../types/coords.interface.js';
-import { HousingFeatures } from '../../types/housing-features.type.js';
+import { Coords, HousingFeatures } from '../../types/index.js';
 
 export const adaptCoordFromString = (coords: string): Coords => {
   const [latitude, longitude] = coords.split(',');

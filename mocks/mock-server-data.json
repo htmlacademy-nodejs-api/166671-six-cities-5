@@ -1,0 +1,76 @@
+{
+  "api": {
+    "authorsId": [
+      "123edt",
+      "567e2e",
+      "891036",
+      "98765x",
+      "wt667g",
+      "mkjh76",
+      "089hbv",
+      "7652vz"
+    ],
+    "cities": [
+      "Paris",
+      "Cologne",
+      "Brussels",
+      "Amsterdam",
+      "Hamburg",
+      "Dusseldorf"
+    ],
+    "coords": [
+      "48.85661,2.351499",
+      "50.938361,6.959974",
+      "50.846557,4.351697",
+      "52.370216,4.895168",
+      "53.550341,10.000654",
+      "51.225402,6.776314"
+    ],
+    "descriptions": [
+      "отличная квартира в центре, имеется вся мебель и техника для комфортного проживания.",
+      "комфортная четырехкомнатная квартира в центре города.",
+      "уютная 2х комнатная квартира. Кухня совмещена с гостиной и укомплектована необходимой техникой, включая посудомоечную машину. Обеденный стол на 4 персоны.",
+      "Двухкомнатная квартира. Все необходимое для проживание имеется. В квартире сделан качественный ремонт, шикарная кухня.",
+      "апартамент-студия. Стильный интерьер, продуманная планировка с зонами прихожей с вместительным шкафом-купе, кухни и обеденной зоны, гостиной и спальни; санузел с душем."
+    ],
+    "features": [
+      "Breakfast",
+      "Air conditioning",
+      "Laptop friendly workspace",
+      "Baby seat",
+      "Washer",
+      "Towels",
+      "Fridge"
+    ],
+    "isFavorites": [true, false],
+    "isPremium": [true, false],
+    "numberComments": [1, 2, 3, 4, 5, 6, 7],
+    "numberGuests": [1, 2, 3, 4, 10],
+    "numberRooms": [1, 2, 3, 4, 5, 6, 7, 8],
+    "photosHousing": [
+      "photo-house-1.jpg",
+      "photo-house-2.jpg",
+      "photo-house-3.jpg",
+      "photo-house-4.jpg",
+      "photo-house-5.jpg",
+      "photo-house-6.jpg"
+    ],
+    "previewImages": [
+      "preview-image-1.jpg",
+      "preview-image-2.jpg",
+      "preview-image-3.jpg",
+      "preview-image-4.jpg",
+      "preview-image-5.jpg",
+      "preview-image-6.jpg"
+    ],
+    "ratings": [1.8, 2.2, 3, 4, 5, 5.9],
+    "titles": [
+      "Эконом с двумя раздельными кроватями",
+      "Смарт с 1 большой кроватью",
+      "Двухместный номер Comfort",
+      "Двухместный номер Superior с видом на сад",
+      "Номер Standard с видом на город"
+    ],
+    "typeHousing": ["apartment", "house", "room", "hotel"]
+  }
+}
