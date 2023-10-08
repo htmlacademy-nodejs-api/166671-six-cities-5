@@ -8,7 +8,7 @@ import { Component } from '../shared/types/component.enum.js';
 export class RestApplication {
   constructor(
     @inject(Component.Logger) private readonly logger: Logger,
-    @inject(Component.Logger) private readonly config: Config<RestSchema>
+    @inject(Component.Config) private readonly config: Config<RestSchema>
   ) {}
 
   public async init() {
