@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { MockServerData } from '../../../types/mock-server-data.type.js';
+import { MockServerData } from '../../types/mock-server-data.type.js';
 import {
   generateRandomValue,
   getRandomItem,

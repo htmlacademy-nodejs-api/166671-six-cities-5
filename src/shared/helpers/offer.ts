@@ -1,5 +1,5 @@
-import { RentalOffer } from '../../types/rental-offer.interface.js';
-import { TypeHousing } from '../../types/type-housing.type.js';
+import { RentalOffer } from '../types/rental-offer.interface.js';
+import { TypeHousing } from '../types/type-housing.type.js';
 import {
   adaptBooleanFromString,
   adaptCoordFromString,
