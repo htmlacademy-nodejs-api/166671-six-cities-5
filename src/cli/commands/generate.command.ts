@@ -1,5 +1,5 @@
 import got from 'got';
-import { MockServerData } from '../../types/mock-server-data.type.js';
+import { MockServerData } from '../../shared/types/mock-server-data.type.js';
 import { Command } from './command.interface.js';
 import { TSVOfferGenerator } from '../../shared/libs/offer-generator/tsv-offer-generator.js';
 import { TSVFileWriter } from '../../shared/libs/file-writer/tsv-file-writer.js';
