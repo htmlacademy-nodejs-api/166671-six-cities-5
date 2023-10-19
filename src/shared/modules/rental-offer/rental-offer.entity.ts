@@ -126,4 +126,4 @@ export class RentalOfferEntity
   }
 }
 
-export const RentalOfferModel = getModelForClass(RentalOfferEntity);
+export const OfferModel = getModelForClass(RentalOfferEntity);
