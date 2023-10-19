@@ -18,8 +18,7 @@ export interface RentalOfferEntity extends defaultClasses.Base {}
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export class RentalOfferEntity
   extends defaultClasses.TimeStamps
-  implements RentalOffer
-{
+  implements RentalOffer {
   @prop({ required: true })
   public authorId: string;
 
