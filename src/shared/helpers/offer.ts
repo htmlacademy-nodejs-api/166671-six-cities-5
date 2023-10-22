@@ -6,10 +6,10 @@ import {
   adaptHousingFeaturesFromString,
   adaptPhotosHousingFromString,
 } from '../adapters/fromImportFile.js';
+import { UserType } from '../types/user.interface.js';
 
 export const createOffer = (offerData: string): RentalOffer => {
   const [
-    authorId,
     city,
     coords,
     datePublication,
@@ -26,10 +26,21 @@ export const createOffer = (offerData: string): RentalOffer => {
     rentalPrice,
     title,
     typeHousing,
+    author,
+    avatar,
+    email,
+    userType,
   ] = offerData.replace('\n', '').split('\t');
 
+  const user = {
+    avatar,
+    email,
+    name: author,
+    userType: userType as UserType,
+  };
+
   return {
-    authorId,
+    author: user,
     city,
     coords: adaptCoordFromString(coords),
     datePublication: new Date(datePublication),

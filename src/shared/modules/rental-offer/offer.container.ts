@@ -1,7 +1,7 @@
 import { Container } from 'inversify';
 import { OfferService } from './offer-service.interface.js';
 import { Component } from '../../types/component.enum.js';
-import { DefaultOfferService, OfferModel, RentalOfferEntity } from './index.js';
+import { DefaultOfferService, OfferModel, OfferEntity } from './index.js';
 import { types } from '@typegoose/typegoose';
 
 export const createOfferContainer = () => {
@@ -13,7 +13,7 @@ export const createOfferContainer = () => {
     .inSingletonScope();
 
   offerContainer
-    .bind<types.ModelType<RentalOfferEntity>>(Component.OfferModel)
+    .bind<types.ModelType<OfferEntity>>(Component.OfferModel)
     .toConstantValue(OfferModel);
 
   return offerContainer;

@@ -13,29 +13,29 @@ import {
   MongoDatabaseClient,
 } from '../../shared/libs/database-client/index.js';
 import { Logger } from '../../shared/libs/logger/index.js';
-// import {
-//   DefaultUserService,
-//   UserModel,
-//   UserService,
-// } from '../../shared/modules/user/index.js';
+import {
+  DefaultUserService,
+  UserModel,
+  UserService,
+} from '../../shared/modules/user/index.js';
 import { ConsoleLogger } from '../../shared/libs/logger/index.js';
-import { RentalOffer } from '../../shared/types/rental-offer.interface.js';
 import { getMongoURI } from '../../shared/helpers/database.js';
-import { DEFAULT_DB_PORT } from './command.constant.js';
+import { DEFAULT_DB_PORT, DEFAULT_USER_PASSWORD } from './command.constant.js';
+import { RentalOffer } from '../../shared/types/rental-offer.interface.js';
 
 export class ImportCommand implements Command {
-  // private userService: UserService;
+  private userService: UserService;
   private offerService: OfferService;
   private databaseClient: DatabaseClient;
   private logger: Logger;
-  // private salt: string;
+  private salt: string;
 
   constructor() {
     this.onImportedLine = this.onImportedLine.bind(this);
     this.onCompleteImport = this.onCompleteImport.bind(this);
 
     this.logger = new ConsoleLogger();
-    // this.userService = new DefaultUserService(this.logger, UserModel);
+    this.userService = new DefaultUserService(this.logger, UserModel);
     this.offerService = new DefaultOfferService(this.logger, OfferModel);
     this.databaseClient = new MongoDatabaseClient(this.logger);
   }
@@ -56,8 +56,16 @@ export class ImportCommand implements Command {
   }
 
   private async saveOffer(offer: RentalOffer) {
+    const user = await this.userService.findOrCreate(
+      {
+        ...offer.author,
+        password: DEFAULT_USER_PASSWORD,
+      },
+      this.salt
+    );
+
     await this.offerService.create({
-      authorId: offer.authorId,
+      authorId: user.id,
       city: offer.city,
       coords: offer.coords,
       datePublication: offer.datePublication,
@@ -83,10 +91,10 @@ export class ImportCommand implements Command {
     password: string,
     host: string,
     dbname: string,
-    // salt: string
+    salt: string
   ): Promise<void> {
     const uri = getMongoURI(login, password, host, DEFAULT_DB_PORT, dbname);
-    // this.salt = salt;
+    this.salt = salt;
 
     await this.databaseClient.connect(uri);
 

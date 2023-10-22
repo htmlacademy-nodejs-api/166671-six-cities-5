@@ -3,13 +3,15 @@ import {
   getModelForClass,
   modelOptions,
   prop,
+  Ref,
   Severity,
 } from '@typegoose/typegoose';
-import { RentalOffer } from '../../types/index.js';
 import { Coords, HousingFeatures, TypeHousing } from '../../types/index.js';
+import { UserEntity } from '../user/user.entity.js';
+import { CreateOfferDto } from './dto/create-offer.dto.js';
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
-export interface RentalOfferEntity extends defaultClasses.Base {}
+export interface OfferEntity extends defaultClasses.Base {}
 
 @modelOptions({
   schemaOptions: {
@@ -18,16 +20,14 @@ export interface RentalOfferEntity extends defaultClasses.Base {}
   options: { allowMixed: Severity.ALLOW },
 })
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
-export class RentalOfferEntity
-  extends defaultClasses.TimeStamps
-  implements RentalOffer {
-  @prop({ required: true })
-  public authorId: string;
+export class OfferEntity extends defaultClasses.TimeStamps {
+  @prop({ required: true, ref: UserEntity })
+  public authorId!: Ref<UserEntity>;
 
   @prop({ required: true })
   public city: string;
 
-  @prop({ require: true, unique: true })
+  @prop({ require: true })
   public coords: Coords;
 
   @prop({ required: true })
@@ -102,10 +102,8 @@ export class RentalOfferEntity
   @prop({ required: true })
   public typeHousing: TypeHousing;
 
-  constructor(data: RentalOffer) {
+  constructor(data: CreateOfferDto) {
     super();
-
-    this.authorId = data.authorId;
     this.city = data.city;
     this.coords = data.coords;
     this.datePublication = data.datePublication;
@@ -128,4 +126,4 @@ export class RentalOfferEntity
   }
 }
 
-export const OfferModel = getModelForClass(RentalOfferEntity);
+export const OfferModel = getModelForClass(OfferEntity);

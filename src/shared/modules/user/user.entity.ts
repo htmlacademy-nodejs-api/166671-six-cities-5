@@ -1,4 +1,5 @@
 import {
+  Severity,
   defaultClasses,
   getModelForClass,
   modelOptions,
@@ -14,15 +15,24 @@ export interface UserEntity extends defaultClasses.Base {}
   schemaOptions: {
     collection: 'users',
   },
+  options: { allowMixed: Severity.ALLOW },
 })
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export class UserEntity extends defaultClasses.TimeStamps implements User {
-  @prop({ unique: true, minlength: [5, 'Min length for avatar path is 5'] })
-  public avatar: string | undefined;
+  @prop({
+    validate: {
+      validator: (v: string | undefined) => v && v.length >= 5,
+      message: 'Min length for avatar path is 5',
+    },
+  })
+  public avatar?: string;
 
   @prop({
     unique: true,
-    match: [/^([\w-\\.]+@([\w-]+\.)+[\w-]{2,4})?$/, 'Email is incorrect'],
+    match: [
+      /^(([^<>()[\]\\.,;:\s@\\"]+(\.[^<>()[\]\\.,;:\s@\\"]+)*)|(\\".+\\"))@(([^<>()[\]\\.,;:\s@\\"]+\.)+[^<>()[\]\\.,;:\s@\\"]{2,})$/i,
+      'Email is incorrect',
+    ],
     required: true,
   })
   public email: string;
@@ -42,6 +52,7 @@ export class UserEntity extends defaultClasses.TimeStamps implements User {
     this.avatar = userData?.avatar;
     this.email = userData.email;
     this.name = userData.name;
+    this.userType = userData.userType;
   }
 
   public setPassword(password: string, salt: string) {
