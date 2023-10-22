@@ -42,9 +42,7 @@ export class TSVOfferGenerator implements OfferGenerator {
     const numberRooms = getRandomItem<number>(
       this.mockData.numberRooms
     ).toString();
-    const photosHousing = getRandomItems<string>(
-      this.mockData.photosHousing
-    ).join(',');
+    const photosHousing = this.mockData.photosHousing.join(',');
     const previewImage = getRandomItem<string>(this.mockData.previewImages);
     const rating = getRandomItem<number>(this.mockData.ratings).toString();
     const rentalPrice = generateRandomValue(MIN_PRICE, MAX_PRICE).toString();

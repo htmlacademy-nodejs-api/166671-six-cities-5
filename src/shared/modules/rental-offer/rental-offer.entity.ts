@@ -3,6 +3,7 @@ import {
   getModelForClass,
   modelOptions,
   prop,
+  Severity,
 } from '@typegoose/typegoose';
 import { RentalOffer } from '../../types/index.js';
 import { Coords, HousingFeatures, TypeHousing } from '../../types/index.js';
@@ -14,6 +15,7 @@ export interface RentalOfferEntity extends defaultClasses.Base {}
   schemaOptions: {
     collection: 'offers',
   },
+  options: { allowMixed: Severity.ALLOW },
 })
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export class RentalOfferEntity
@@ -38,7 +40,7 @@ export class RentalOfferEntity
   })
   public description: string;
 
-  @prop({ required: true, minlength: [1, 'Min length for features is 1'] })
+  @prop({ required: true })
   public features: HousingFeatures;
 
   @prop({ required: true })
