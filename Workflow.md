@@ -66,13 +66,27 @@ npm start
 
 В процессе запуска проекта будет выполнен процесс «Сборки проекта» и запуска результирующего кода.
 
-#### Запустить mock-server
+#### CLI
+
+##### Запустить mock-server
 
 ```bash
 npm run mock:server
 ```
 
 сервер запустится на локальном порту 3123.
+
+##### Получить помощь по командам
+
+```bash
+npm run ts src/main.cli.ts -- --help
+```
+
+##### Импорт сгенерированных данных в базу
+
+```bash
+  npm run ts src/main.cli.ts -- --import mocks/mock-data2.tsv root example 127.0.0.1 buy-and-sell
+```
 
 ## Структура проекта
 

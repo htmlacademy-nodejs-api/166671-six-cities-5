@@ -1,5 +1,4 @@
 export type MockServerData = {
-  authorsId: string[];
   cities: string[];
   coords: string[];
   descriptions: string[];
@@ -14,4 +13,8 @@ export type MockServerData = {
   ratings: number[];
   titles: string[];
   typeHousing: string[];
+  users: string[];
+  avatar: string[];
+  email: string[];
+  userType: string[];
 };

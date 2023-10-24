@@ -1,11 +1,12 @@
 import { Coords } from './coords.interface.js';
 import { HousingFeatures } from './housing-features.type.js';
 import { TypeHousing } from './type-housing.type.js';
+import { User } from './user.interface.js';
 
 /** интерфейс. Предложение по аренде. */
 export interface RentalOffer {
   /** Автор предложения. Обязательное. Ссылка на сущность «Пользователь» */
-  authorId: string;
+  author: User;
   /** Город. Обязательное. Один из шести городов. */
   city: string;
   /** Координаты предложения для аренды. Обязательное. Координаты представлены широтой и долготой. */

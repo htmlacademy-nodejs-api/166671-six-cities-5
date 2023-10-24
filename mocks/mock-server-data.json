@@ -1,15 +1,5 @@
 {
   "api": {
-    "authorsId": [
-      "123edt",
-      "567e2e",
-      "891036",
-      "98765x",
-      "wt667g",
-      "mkjh76",
-      "089hbv",
-      "7652vz"
-    ],
     "cities": [
       "Paris",
       "Cologne",
@@ -71,6 +61,30 @@
       "Двухместный номер Superior с видом на сад",
       "Номер Standard с видом на город"
     ],
-    "typeHousing": ["apartment", "house", "room", "hotel"]
+    "typeHousing": ["apartment", "house", "room", "hotel"],
+    "users": [
+      "Иван Иванов",
+      "Олег Сидоров",
+      "Пьер Безухов",
+      "Антон Городецкий",
+      "Борис Гесер"
+    ],
+    "avatar": [
+      "user.jpg",
+      "photo.jpg",
+      "awesome-avatar.jpg",
+      "roland.jpg",
+      "smite.jpg",
+      "coffee.jpg"
+    ],
+    "email": [
+      "snow@pisem.local",
+      "president@dka.local",
+      "fish@big.local",
+      "test@pisem.local",
+      "freedom@pisem.local",
+      "rolan@pochta.local"
+    ],
+    "userType": ["common", "pro"]
   }
 }

@@ -1,5 +1,5 @@
 /** тип пользователя. */
-type UserType = 'common' | 'pro';
+export type UserType = 'common' | 'pro';
 
 /** интерфейс. пользователь */
 export interface User {
@@ -9,8 +9,6 @@ export interface User {
   email: string;
   /** Имя. Обязательное. Мин. длина 1 символ, макс. длина 15 символов; */
   name: string;
-  /** Пароль. Обязательное. Мин. длина 6 символов, макс. длина 12 символов; */
-  password: string;
   /** Тип пользователя. Обязательное. */
   userType: UserType;
 }
