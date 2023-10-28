@@ -1,12 +1,11 @@
 import { RentalOffer } from '../types/rental-offer.interface.js';
-import { TypeHousing } from '../types/type-housing.type.js';
 import {
   adaptBooleanFromString,
   adaptCoordFromString,
   adaptHousingFeaturesFromString,
   adaptPhotosHousingFromString,
 } from '../adapters/fromImportFile.js';
-import { UserType } from '../types/index.js';
+import { TypeHousing, UserType } from '../types/index.js';
 
 export const createOffer = (offerData: string): RentalOffer => {
   const [
