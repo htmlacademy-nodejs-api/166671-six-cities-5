@@ -1,5 +1,4 @@
-/** тип пользователя. */
-export type UserType = 'common' | 'pro';
+import { UserType } from './user-type.enum.js';
 
 /** интерфейс. пользователь */
 export interface User {

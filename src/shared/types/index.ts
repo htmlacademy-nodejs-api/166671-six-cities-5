@@ -6,3 +6,4 @@ export * from './rental-offer.interface.js';
 export * from './type-housing.type.js';
 export * from './user.interface.js';
 export * from './component.enum.js';
+export * from './user-type.enum.js';

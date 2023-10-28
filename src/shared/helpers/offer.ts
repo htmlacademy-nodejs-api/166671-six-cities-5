@@ -6,7 +6,7 @@ import {
   adaptHousingFeaturesFromString,
   adaptPhotosHousingFromString,
 } from '../adapters/fromImportFile.js';
-import { UserType } from '../types/user.interface.js';
+import { UserType } from '../types/index.js';
 
 export const createOffer = (offerData: string): RentalOffer => {
   const [

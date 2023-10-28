@@ -1,5 +1,4 @@
 import {
-  Severity,
   defaultClasses,
   getModelForClass,
   modelOptions,
@@ -15,7 +14,6 @@ export interface UserEntity extends defaultClasses.Base {}
   schemaOptions: {
     collection: 'users',
   },
-  options: { allowMixed: Severity.ALLOW },
 })
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export class UserEntity extends defaultClasses.TimeStamps implements User {
@@ -43,7 +41,7 @@ export class UserEntity extends defaultClasses.TimeStamps implements User {
   @prop({ required: true, minlength: [8, 'Min length for password is 8'] })
   public password: string;
 
-  @prop({ required: true })
+  @prop({ required: true, type: () => String, enum: UserType })
   public userType: UserType;
 
   constructor(userData: User) {
