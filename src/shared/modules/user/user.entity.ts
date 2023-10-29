@@ -6,6 +6,7 @@ import {
 } from '@typegoose/typegoose';
 import { User, UserType } from '../../types/index.js';
 import { createSHA256 } from '../../helpers/index.js';
+import { DEFAULT_USER_AVATAR } from './user.const.js';
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export interface UserEntity extends defaultClasses.Base {}
@@ -22,6 +23,7 @@ export class UserEntity extends defaultClasses.TimeStamps implements User {
       validator: (v: string | undefined) => v && v.length >= 5,
       message: 'Min length for avatar path is 5',
     },
+    default: DEFAULT_USER_AVATAR,
   })
   public avatar?: string;
 
