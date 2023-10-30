@@ -76,6 +76,21 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CreateOffer'
+        required: true
+
+      responses:
+        '201':
+          description: Новое предложение создано авторизованным пользователем.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreatedOffer'
+
+        '400':
+          description: Не пройдена валидация данных.
+
+        '401':
+          description: Не пройдена авторизация.
 
 components:
   schemas:
@@ -196,6 +211,40 @@ components:
 
         typeHousing:
           $ref: '#/components/schemas/TypeHousing'
+
+    CreatedOffer:
+      description: Созданное предложение.
+      type: object
+      properties:
+        id:
+          description: id созданного офера.
+          type: string
+        data:
+          $ref: '#/components/schemas/CreateOffer'
+
+      example:
+        {
+          id: 6329c3d6a04ab1061c6425ea,
+          data:
+            {
+              'authorId': '6329c3d6a04ab1061c6425ea',
+              'city': 'Paris',
+              'coords': { 'latitude': 48.85661, 'longitude': 2.351499 },
+              'datePublication': '2023-09-27T04:45:02.342Z',
+              'description': 'хорошие апартаменты.',
+              'features': ['Towels', 'Fridge'],
+              'isFavorites': true,
+              'isPremium': true,
+              'numberGuests': 4,
+              'numberRooms': 2,
+              'photosHousing': ['photo1.jpg', '...', 'photo6.jpg'],
+              'previewImage': 'preview.jpg',
+              'rating': 3.4,
+              'rentalPrice': 100,
+              'title': 'наименование предложения.',
+              'typeHousing': 'hotel',
+            },
+        }
 
     Coords:
       type: object
