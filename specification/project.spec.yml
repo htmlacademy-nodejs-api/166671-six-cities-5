@@ -29,18 +29,18 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateUser"
+              $ref: '#/components/schemas/CreateUser'
         required: true
 
       responses:
-        "201":
+        '201':
           description: Пользователь зарегистрирован. Объект пользователя.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/User"
+                $ref: '#/components/schemas/User'
 
-        "409":
+        '409':
           description: Пользователь с таким email уже существует.
 
   /users/login:
@@ -75,7 +75,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateOffer"
+              $ref: '#/components/schemas/CreateOffer'
 
 components:
   schemas:
@@ -95,8 +95,13 @@ components:
           example: 123456
 
         user-type:
-          type: string
-          example: common
+          $ref: '#/components/schemas/UserType'
+
+    UserType:
+      type: string
+      enum:
+        - common
+        - pro
 
     User:
       type: object
@@ -123,7 +128,7 @@ components:
           description: Город. Обязательное.
 
         coords:
-          $ref: "#/components/schemas/Coords"
+          $ref: '#/components/schemas/Coords'
           description: Координаты предложения для аренды. Обязательное. Координаты представлены широтой и долготой.
 
         datePublication:
@@ -139,8 +144,8 @@ components:
         features:
           type: array
           items:
-            $ref: "#/components/schemas/HousingFeature"
-          example: ["Towels", "Fridge"]
+            $ref: '#/components/schemas/HousingFeature'
+          example: ['Towels', 'Fridge']
           description: Удобства. Обязательное. Список удобств. Один или несколько вариантов из списка.
 
         isFavorites:
@@ -166,12 +171,12 @@ components:
           items:
             type: string
 
-          example: ["photo1.jpg", "...", "photo6.jpg"]
+          example: ['photo1.jpg', '...', 'photo6.jpg']
           description: Фотографии жилья. Обязательное. Список ссылок на фотографии жилья. Всегда 6 фотографий.
 
         previewImage:
           type: string
-          example: "preview.jpg"
+          example: 'preview.jpg'
           description: Превью изображения. Обязательное. Ссылка на изображение, которое используется в качестве превью;
 
         rating:
@@ -190,7 +195,7 @@ components:
           description: Наименование. Обязательное. Мин. длин 10 символов, макс. длина 100;
 
         typeHousing:
-          $ref: "#/components/schemas/TypeHousing"
+          $ref: '#/components/schemas/TypeHousing'
 
     Coords:
       type: object
@@ -208,22 +213,22 @@ components:
     HousingFeature:
       type: string
       enum:
-        - "Breakfast"
-        - "Air conditioning"
-        - "Laptop friendly workspace"
-        - "Baby seat"
-        - "Washer"
-        - "Towels"
-        - "Fridge"
+        - 'Breakfast'
+        - 'Air conditioning'
+        - 'Laptop friendly workspace'
+        - 'Baby seat'
+        - 'Washer'
+        - 'Towels'
+        - 'Fridge'
       example: Towels
       description: Удобства.
 
     TypeHousing:
       type: string
       enum:
-        - "apartment"
-        - "house"
-        - "room"
-        - "hotel"
-      example: "hotel"
+        - 'apartment'
+        - 'house'
+        - 'room'
+        - 'hotel'
+      example: 'hotel'
       description: Тип жилья.
