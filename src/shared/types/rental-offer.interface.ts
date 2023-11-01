@@ -1,6 +1,5 @@
 import { Coords } from './coords.interface.js';
-import { HousingFeatures } from './housing-features.type.js';
-import { TypeHousing } from './type-housing.type.js';
+import { HousingFeature, TypeHousing } from './index.js';
 import { User } from './user.interface.js';
 
 /** интерфейс. Предложение по аренде. */
@@ -16,7 +15,7 @@ export interface RentalOffer {
   /** Описание предложения. Обязательное. Мин. длина 20 символов, макс. длина 1024 символа; */
   description: string;
   /** Удобства. Обязательное. Список удобств. Один или несколько вариантов из списка. */
-  features: HousingFeatures;
+  features: HousingFeature[];
   /** Флаг «Избранное». Обязательное. Признак того, что предложение принадлежит списку избранных предложений пользователя; */
   isFavorites: boolean;
   /** Флаг «Премиум». Обязательное. Признак премиальности предложения; */

@@ -1,4 +1,4 @@
-import { Coords, HousingFeatures, TypeHousing } from '../../../types/index.js';
+import { Coords, HousingFeature, TypeHousing } from '../../../types/index.js';
 
 export class CreateOfferDto {
   authorId: string;
@@ -6,7 +6,7 @@ export class CreateOfferDto {
   coords: Coords;
   datePublication: Date;
   description: string;
-  features: HousingFeatures;
+  features: HousingFeature[];
   isFavorites: boolean;
   isPremium: boolean;
   numberComments: number;

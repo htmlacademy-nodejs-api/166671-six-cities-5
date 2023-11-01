@@ -1,5 +1,4 @@
 import {
-  Severity,
   defaultClasses,
   getModelForClass,
   modelOptions,
@@ -7,6 +6,7 @@ import {
 } from '@typegoose/typegoose';
 import { User, UserType } from '../../types/index.js';
 import { createSHA256 } from '../../helpers/index.js';
+import { DEFAULT_USER_AVATAR } from './user.const.js';
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export interface UserEntity extends defaultClasses.Base {}
@@ -15,7 +15,6 @@ export interface UserEntity extends defaultClasses.Base {}
   schemaOptions: {
     collection: 'users',
   },
-  options: { allowMixed: Severity.ALLOW },
 })
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export class UserEntity extends defaultClasses.TimeStamps implements User {
@@ -24,6 +23,7 @@ export class UserEntity extends defaultClasses.TimeStamps implements User {
       validator: (v: string | undefined) => v && v.length >= 5,
       message: 'Min length for avatar path is 5',
     },
+    default: DEFAULT_USER_AVATAR,
   })
   public avatar?: string;
 
@@ -43,7 +43,7 @@ export class UserEntity extends defaultClasses.TimeStamps implements User {
   @prop({ required: true, minlength: [8, 'Min length for password is 8'] })
   public password: string;
 
-  @prop({ required: true })
+  @prop({ required: true, type: () => String, enum: UserType })
   public userType: UserType;
 
   constructor(userData: User) {

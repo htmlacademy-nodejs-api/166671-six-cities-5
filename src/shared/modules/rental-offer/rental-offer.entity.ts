@@ -6,7 +6,7 @@ import {
   Ref,
   Severity,
 } from '@typegoose/typegoose';
-import { Coords, HousingFeatures, TypeHousing } from '../../types/index.js';
+import { Coords, HousingFeature, TypeHousing } from '../../types/index.js';
 import { UserEntity } from '../user/user.entity.js';
 import { CreateOfferDto } from './dto/create-offer.dto.js';
 
@@ -41,7 +41,7 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   public description: string;
 
   @prop({ required: true })
-  public features: HousingFeatures;
+  public features: HousingFeature[];
 
   @prop({ required: true })
   public isFavorites: boolean;
